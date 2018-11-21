@@ -1,0 +1,136 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12">
+      <div class="card ">
+          <h1>Crear Empleado</h1>
+
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="name" ngModel type="text" placeholder="Nombre de Almacen" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="accountId" ngModel type="text" placeholder="Id" pInputText>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="address" ngModel type="text" placeholder="Direccion" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="area" ngModel type="text" placeholder="Area" pInputText>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="cURP" ngModel type="text" placeholder="Curp" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="contactName" ngModel type="text" placeholder="Id" pInputText>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="emailAddress" ngModel type="text" placeholder="Correo" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="cURPFirstName" ngModel type="text" placeholder="Primer Nombre" pInputText>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="headId" ngModel type="text" placeholder="Jefe" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="lastName" ngModel type="text" placeholder="Apellido" pInputText>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="movil1" ngModel type="text" placeholder="Numero De Celular 1" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input name="movil2" ngModel type="text" placeholder="Numero De Celular 2" pInputText>
+                  </div>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="phoneNumber" ngModel type="text" placeholder="Numero Telefonico" pInputText>
+                  </div>
+              </div>
+
+              <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="position" ngModel type="text" placeholder="Posicion" pInputText>
+                  </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                  <div class="ui-inputgroup">
+
+                      <input required name="type" ngModel type="text" placeholder="Tipo" pInputText>
+                  </div>
+                </div>
+              <button class="ui-g-10 ui-md-10" type="submit" [disabled]="!f.valid" label="Agregar" pButton icon="fa fa-plus"></button>
+          </form>
+      </div>
+  </div>
+</div>
+
+<swal
+#successSwal
+title="Exito!"
+[text]="swalText"
+type="success">
+</swal>
+
+<swal
+#warningSwal
+title="Error!"
+text="Ha Ocurrido Un Error"
+type="warning">
+</swal>
+
+<swal
+#loadingSwal
+title="Cargando..."
+>
+
+<div *swalPartial class="loading-center">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+</swal>

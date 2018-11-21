@@ -1,0 +1,81 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+        <div class="card ">
+            <h1>Modificar Cliente</h1>
+
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input required name="firstName" [(ngModel)]="firstName" type="text" placeholder="Nombre de Cliente" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input required name="lastName" [(ngModel)]="lastName" type="text" placeholder="Telefono de Cliente" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input pTooltip="Formato Valido: ejemplo@correo.com" tooltipPosition="top" tooltipEvent="focus" required email name="emailAddress"  [(ngModel)]="emailAddress" type="text" placeholder="Correo" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="phoneNumber"  [(ngModel)]="phoneNumber" type="text" placeholder="Actividad Comercial" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="days" [(ngModel)]="days" type="text" placeholder="Tipo de Control" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="orders" [(ngModel)]="orders" type="text" placeholder="Numero de Empleados" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="usedOrders" [(ngModel)]="usedOrders" type="number" placeholder="Numero de Centro" pInputText>
+                    </div>
+                </div>
+
+                <button class="ui-g-10 ui-md-10" type="submit" [disabled]="!f.valid" label="Modificar" pButton icon="fa fa-plus"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  [text]="swalErrorMessage"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

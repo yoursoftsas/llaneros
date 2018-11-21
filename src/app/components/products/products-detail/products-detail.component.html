@@ -1,0 +1,48 @@
+<div *ngIf="currentProducts" class="ui-g-12 ui-lg-12">
+  <div class="products-card card">
+    <div class="products-card-header">
+      <h1>{{currentProducts.Name}}</h1>
+    </div>
+    <div class="products-card-content">
+      <div class="products-detail">
+        <ul>
+          <li class="clearfix">
+            <h3> Id: {{currentProducts.Id}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Marca: {{currentProducts.Description}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Codigo: {{currentProducts.Code}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Tipo: {{currentProducts.Type}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Calidad: {{currentPackaging.Quality}}</h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<swal #successSwal title="Exito!" text="Cargado Exitosamente" type="success">
+</swal>
+
+<swal #warningSwal title="Error!" text="Ha Ocurrido Un Error" type="warning">
+</swal>
+
+<swal #loadingSwal title="Cargando...">
+
+  <div *swalPartial class="loading-center">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+</swal>

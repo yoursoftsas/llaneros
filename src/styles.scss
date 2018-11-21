@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './assets/sass/_variables.scss';
+
+// General Styles For App
+
+
+// Spinner Style
+@keyframes ui-progress-spinner-color {
+    100%,
+    0% {
+        stroke: $colorCucorrent1;
+    }
+    40% {
+        stroke: $colorCucorrent2;
+    }
+    66% {
+        stroke: $colorCucorrent1;
+    }
+    80%,
+    90% {
+        stroke: $colorCucorrent2;
+    }
+}
+
+.loading-center {
+   text-align: center; 
+}
+
+.pointer-style{
+    cursor: pointer;
+}
+
+.buttons {
+    position: absolute;
+    right: 0;
+    display: grid;
+    background: #ed4c7a47;
+    top: 0;
+
+    button {
+        margin: 0px !important;
+        background-color: transparent;
+    }
+    button:hover {
+        background: #141d26;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition-duration: 1s;
+    }
+}
+
+.box {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}

@@ -1,0 +1,56 @@
+<body class="login-body">
+    <div class="body-container">
+        <div class="ui-g">
+           
+            <div class="ui-g-12 ui-lg-12 ">
+                <div class="login-wrapper">
+                    <div class="login-container">
+                        <span class="title">Recuperar Contraseña</span>
+                        <img src="../../../../assets/layout/images/Logo_Cucorent.png" alt="apollo-layout" class="logo" />
+
+                        <form (ngSubmit)="onSubmit(f)" #f="ngForm"  class="ui-g ui-fluid">
+                          <div class="ui-g-12">
+                            <input email required name="emailAddress" type="text" ngModel autocomplete="off" placeholder="Correo" class="ui-inputtext ui-widget"/>
+                          </div>
+                       
+                          <div class="ui-g-12">
+                            <button [disabled]="!f.valid" type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only blue-btn">
+                              <span class="ui-button-text ui-c">
+                                <img src="../../../../assets/layout/images/check.svg" alt="login" style="height: 13px;width: 16px;float: left;margin-top: 3px">
+                                Recuperar Contraseña
+                              </span>
+                            </button>
+                          </div>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Por Favor Revise Su Correo! "
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

@@ -1,0 +1,77 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+        <div class="card ">
+            <h1>Crear Producto</h1>
+
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="name" ngModel type="text" placeholder="Nombre del Producto" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="code" ngModel type="text" placeholder="Codigo" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input name="description" ngModel type="text" placeholder="Marca" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="notes" ngModel type="text" placeholder="Actividad Comercial" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="quality" ngModel type="text" placeholder="Calidad" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <label>Categoria</label>
+                        <select required name="categories" [(ngModel)]="categories.Name" [ngModelOptions]="{standalone: true}" placeholder="Categoria" pInputText>
+                            <option value="1">{{categories.Name}}</option>
+                            <option value="2">{{categories.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="ui-g-10 ui-md-10" type="submit" label="Agregar" pButton icon="fa fa-plus"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

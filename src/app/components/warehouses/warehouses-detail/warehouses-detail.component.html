@@ -1,0 +1,37 @@
+<div *ngIf="currentWarehouses" class="ui-g-12 ui-lg-12">
+    <div class="warehouses-card card">
+      <div class="warehouses-card-header">
+        <h1>{{currentWarehouses.Name}}</h1>
+      </div>
+      <div class="warehouses-card-content">
+        <div class="suppliers-detail">
+          <ul>
+            <li class="clearfix">
+              <h3> Id: {{currentWarehouses.Id}}</h3>
+            </li>
+  
+            <li class="clearfix">
+              <h3> Codigo: {{currentWarehouses.Code}}</h3>
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+  
+  <swal #successSwal title="Exito!" text="Cargado Exitosamente" type="success">
+  </swal>
+  
+  <swal #warningSwal title="Error!" text="Ha Ocurrido Un Error" type="warning">
+  </swal>
+  
+  <swal #loadingSwal title="Cargando...">
+  
+    <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+  
+  </swal>

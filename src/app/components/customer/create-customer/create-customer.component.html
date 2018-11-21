@@ -1,0 +1,177 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+        <div class="card ">
+            <h1>Crear Cliente</h1>
+
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input required name="firstName" ngModel type="text" placeholder="Nombre de Cliente" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input required name="lastName" ngModel type="text" placeholder="Apellido de Cliente" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+
+                        <input pTooltip="Formato Valido: ejemplo@correo.com" tooltipPosition="top" tooltipEvent="focus" required email name="emailAddress" ngModel type="text" placeholder="Correo" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="phoneNumber" ngModel type="text" placeholder="Telefono de Cliente" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required name="days" ngModel type="text" placeholder="Dias De Plazo" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input min="1" oninput="validity.valid||(value='');" required name="centerNumber" ngModel type="usedOrders" placeholder="Ordenes Usadas" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-4 ui-sm-12">
+                    <div class="card ">
+                        <h1>Contacto</h1>
+
+                        <form (ngSubmit)="onSubmitContact(f2)" #f2="ngForm" class="ui-g form-group">
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-inputgroup">
+                                    <input required name="firstName" ngModel type="text" placeholder="Nombre de Contacto" pInputText>
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-inputgroup">
+                                    <input required name="lastName" ngModel type="text" placeholder="Apellido de Contacto" pInputText>
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-inputgroup">
+                                    <input required name="phone" ngModel type="text" placeholder="Telefono de Contacto" pInputText>
+                                </div>
+                            </div>
+
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="ui-inputgroup">
+
+                                    <input pTooltip="Formato Valido: ejemplo@correo.com" tooltipPosition="top" tooltipEvent="focus" required email name="emailAddress" ngModel type="text" placeholder="Correo de Contacto" pInputText>
+                                </div>
+                            </div>
+
+
+
+
+                            <button class="ui-g-10 ui-md-10" type="submit" [disabled]="!f2.valid" label="Agregar Informacion de Contacto" pButton icon="fa fa-plus"></button>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="ui-g-8 ui-sm-12">
+                    <p-table [value]="contactList" [responsive]="true" [scrollable]="true" scrollHeight="100%">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Nombre de Contacto</th>
+                                <th>Apellido de Contacto</th>
+                                <th>Telefono de Contacto</th>
+                                <th>Correo de Contacto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-contact>
+                            <tr>
+                                <td class="resizable-column" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input required type="text" [(ngModel)]="contact.FirstName" [ngModelOptions]="{standalone: true}">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{contact.FirstName}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="resizable-column" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input required type="text" [(ngModel)]="contact.LastName" [ngModelOptions]="{standalone: true}">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{contact.LastName}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="resizable-column" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input required type="text" [(ngModel)]="contact.Phone" [ngModelOptions]="{standalone: true}">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{contact.Phone}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="resizable-column" pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pTooltip="Formato Valido: ejemplo@correo.com" tooltipPosition="top" tooltipEvent="focus" required email type="text" [(ngModel)]="contact.EmailAddress" [ngModelOptions]="{standalone: true}">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{contact.EmailAddress}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td class="resizable-column">
+                                    <a pButton icon="fa fa-times" (click)="removeContact(contact)"></a>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+
+
+                <button class="ui-g-10 ui-md-10" type="submit" [disabled]="!f.valid || !(contactList.length>0) " label="Agregar" pButton icon="fa fa-plus"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

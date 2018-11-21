@@ -1,0 +1,49 @@
+<div *ngIf="currentEmployees" class="ui-g-12 ui-lg-12">
+  <div class="employees-card card">
+    <div class="employees-card-header">
+      <h1>{{currentEmployees.FirstName}}</h1>
+    </div>
+    <div class="employees-card-content">
+      <div class="employees-detail">
+        <ul>
+          <li class="clearfix">
+            <h3> Id: {{currentEmployees.Id}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Apellido: {{currentEmployees.LastName}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Posición: {{currentEmployees.Position}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Area: {{currentEmployees.Area}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Tipo: {{currentEmployees.Type}}</h3>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<swal #successSwal title="Exito!" text="Cargado Exitosamente" type="success">
+</swal>
+
+<swal #warningSwal title="Error!" text="Ha Ocurrido Un Error" type="warning">
+</swal>
+
+<swal #loadingSwal title="Cargando...">
+
+  <div *swalPartial class="loading-center">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+</swal>

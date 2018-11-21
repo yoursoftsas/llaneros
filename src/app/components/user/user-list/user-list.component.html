@@ -1,0 +1,82 @@
+<div class="ui-g">
+    
+    <div class="ui-g-12">
+        <div >
+          <div class="ui-g" > 
+            <h1 class="ui-g-4 ui-g-offset-4 ui-sm-4  text-center ">Lista de Usuarios 
+                    
+            </h1>
+            <button (click)="goToCreateUser()" class="ui-g-4 ui-g-offset-4 ui-sm-4  "   type="button" label="Agregar" pButton icon="fa fa-plus"></button>
+            
+          </div>
+            <div *ngIf="userList" class="card ui-g">
+              
+                <div *ngFor="let user of userList" class="ui-g-4 ui-sm-12">
+                    <p-card title="{{user.FirstName +' '+ user.LastName}}" subtitle="Posicion: {{user.Position}} " styleClass="ui-card-shadow"> 
+                        
+                        <div>{{user.EmailAddress}}</div> 
+                        <p-header>
+                            <div class="box">
+                                
+                                <div class="buttons">
+                                    <button pButton pTooltip="Ver producto" tooltipPosition="top"  type="button"
+                                        (click)="goToDetail(user.Id)"
+                                        icon="pi pi-search"></button>
+                                    <button pButton pTooltip="Editar producto" tooltipPosition="top"  type="button"
+                                        (click)="updateUser(user.Id)"
+                                        icon="pi pi-pencil"></button>
+                                    <button (click)="setCurrentUser(user)" pButton  type="button" icon="pi pi-trash"></button>
+                                </div>
+                            </div>
+                        </p-header>
+                    </p-card> 
+                </div>
+
+                
+                
+            </div>
+
+            <p-card *ngIf="!userList || userList.length < 1" class="ui-g-12 text-center" title="no hay datos para mostrar"> 
+                    
+                 
+            </p-card>
+        </div>
+    </div>
+
+    
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>
+
+<swal
+  #deleteSwal
+  title="Desea Eliminar Al Usuario?"
+  text="Esta Accion Es Permanente"
+  type="warning"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="delUser()">
+</swal>

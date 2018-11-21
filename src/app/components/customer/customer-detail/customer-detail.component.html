@@ -1,0 +1,96 @@
+<div *ngIf="currentCustomer" class="ui-g-12 ui-lg-12">
+  <div class="user-card card">
+    <div class="user-card-header">
+      <h1>{{currentCustomer.FirstName}} </h1>
+    </div>
+    <div class="user-card-content">
+
+
+
+      <div class="user-detail">
+        <ul>
+          <li class="clearfix">
+            <h3> Apellido: {{currentCustomer.LastName}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Correo: {{currentCustomer.EmailAddress}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Numero de Telefono: {{currentCustomer.PhoneNumber}}</h3>
+
+          </li>
+
+
+
+          <li class="clearfix">
+            <h3> Politica De Credito: {{currentCustomer.CreditPolicies}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Monto Total Del Credito: {{currentCustomer.CreditLimit}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Numero de Ventas: {{currentCustomer.Orders}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Plazo: {{currentCustomer.Days}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Monto Total : {{currentCustomer.UsedCredit}}</h3>
+
+          </li>
+
+          <li class="clearfix">
+            <h3> Numero De Ventas Usadas : {{currentCustomer.UsedOrders}}</h3>
+
+          </li>
+        </ul>
+
+        <p-table [value]="currentCustomer.Contacts" [responsive]="true" [scrollable]="true" scrollHeight="100%">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Nombre de Contacto</th>
+              <th>Telefono de Contacto</th>
+              <th>Correo de Contacto</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-contact>
+            <tr>
+              <td class="resizable-column">{{contact.FirstName}} {{contact.LastName}}</td>
+              <td class="resizable-column">{{contact.Phone}}</td>
+              <td class="resizable-column">{{contact.EmailAddress}}</td>
+
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<swal #successSwal title="Exito!" text="Cargado Exitosamente" type="success">
+</swal>
+
+<swal #warningSwal title="Error!" text="Ha Ocurrido Un Error" type="warning">
+</swal>
+
+<swal #loadingSwal title="Cargando...">
+
+  <div *swalPartial class="loading-center">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+</swal>

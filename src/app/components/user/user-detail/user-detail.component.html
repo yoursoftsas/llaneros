@@ -1,0 +1,72 @@
+<div *ngIf="currentUser" class="ui-g-12 ui-lg-12">
+    <div class="user-card card">
+        <div class="user-card-header">
+          <h1>{{currentUser.FirstName}}  {{currentUser.LastName}}</h1>
+        </div>
+        <div class="user-card-content">
+
+          
+
+            <div class="user-detail">
+              <ul>
+                <li class="clearfix">
+                  <h3> Direccion: {{currentUser.Address}}</h3>
+                
+                </li>
+
+                <li class="clearfix">
+                  <h3> Correo: {{currentUser.EmailAddress}}</h3>
+                
+                </li>
+
+                <li class="clearfix">
+                  <h3> Email {{currentUser.EmailConfirmed == true? 'Confirmado':'No Confirmado'}}</h3>
+                
+                </li>
+
+                <li class="clearfix">
+                  <h3> Telefono: {{currentUser.Phone}}</h3>
+                
+                </li>
+               
+                <li class="clearfix">
+                  <h3> Posicion: {{currentUser.Position}}</h3>
+                
+                </li>
+
+                
+
+                
+                
+              </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Cargado Exitosamente"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

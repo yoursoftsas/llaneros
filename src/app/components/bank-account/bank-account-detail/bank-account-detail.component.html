@@ -1,0 +1,59 @@
+<div *ngIf="currentBankAccount" class="ui-g-12 ui-lg-12">
+    <div class="bank-account-card card">
+        <div class="bank-account-card-header">
+          <h1>{{currentBankAccount.Bank}}</h1>
+        </div>
+        <div class="bank-account-card-content">
+            <div class="containers-detail">
+              <ul>
+                <li class="clearfix">
+                  <h3> Id: {{currentBankAccount.Id}}</h3>
+                </li>
+
+                <li class="clearfix">
+                  <h3> Sucursal: {{currentBankAccount.Branch}}</h3>
+                </li>
+
+                <li class="clearfix">
+                    <h3> Cuenta Clave: {{currentBankAccount.KeyAccount}}</h3>
+                </li>
+
+                <li class="clearfix">
+                    <h3> Numero De La Cuenta: {{currentBankAccount.Number}}</h3>
+                </li>
+
+                <li class="clearfix">
+                    <h3> Titular De La Cuenta: {{currentBankAccount.Owner}}</h3>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Cargado Exitosamente"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

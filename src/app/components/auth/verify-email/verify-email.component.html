@@ -1,0 +1,50 @@
+<body class="login-body">
+    <div class="body-container">
+        <div class="ui-g">
+            <div *ngIf="isTokenValid === 'Valid'" class="ui-g-12 ui-lg-6 left-side">
+                <img src="../../../../assets/layout/images/Logo_Cucorent.svg" alt="apollo-layout" class="logo" />
+                <h1>Confirmado</h1>
+                <p>
+                  Exito, Correo Confirmado Exitosamente !!!
+                </p>
+            </div>
+
+            <div *ngIf="isTokenValid === 'Expired'" class="ui-g-12 ui-lg-6 left-side">
+                <img src="../../../../assets/layout/images/Logo_Cucorent.svg" alt="apollo-layout" class="logo" />
+                <h1>Error Correo Expirado!</h1>
+                <p>
+                   Se ha Reenviado otro Correo, Por Favor Intente Nuevamente.
+                </p>
+            </div>
+
+
+
+            
+        </div>
+    </div>
+</body>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Correo Verificado Exitosamente! "
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

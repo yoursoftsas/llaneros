@@ -1,0 +1,47 @@
+<div *ngIf="currentContainers" class="ui-g-12 ui-lg-12">
+    <div class="containers-card card">
+        <div class="containers-card-header">
+          <h1>{{currentContainers.Name}}</h1>
+        </div>
+        <div class="containers-card-content">
+            <div class="containers-detail">
+              <ul>
+                <li class="clearfix">
+                  <h3> Id: {{currentContainers.Id}}</h3>
+                </li>
+
+                <li class="clearfix">
+                  <h3> Precio Unitario: {{currentContainers.UnitPrice}}</h3>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Cargado Exitosamente"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

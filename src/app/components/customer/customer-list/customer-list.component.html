@@ -1,0 +1,82 @@
+<div class="ui-g">
+    
+    <div class="ui-g-12">
+        <div >
+          <div class="ui-g" > 
+            <h1 class="ui-g-4 ui-g-offset-4 ui-sm-4  text-center">Lista de Clientes 
+                    
+            </h1>
+            <button (click)="goToCreateCustomer()" class="ui-g-4 ui-g-offset-4 ui-sm-4  "  type="button" label="Agregar" pButton icon="fa fa-plus"></button>
+            
+          </div>
+            <div *ngIf="customerList" class="card ui-g">
+              
+                <div *ngFor="let customer of customerList" class="ui-g-4  ui-sm-12 ">
+                    <p-card title="{{customer.FirstName}}" subtitle="Apellido: {{customer.LastName}}" styleClass="ui-card-shadow"> 
+                        <p-header>
+                            <div class="box">
+                                
+                                <div class="buttons">
+                                    <button pButton pTooltip="Ver Cliente" tooltipPosition="top"  type="button"
+                                        (click)="goToDetail(customer.Id)"
+                                        icon="pi pi-search"></button>
+                                    <button pButton pTooltip="Editar Cliente" tooltipPosition="top"  type="button"
+                                        (click)="updateCustomer(customer.Id)"
+                                        icon="pi pi-pencil"></button>
+                                    <button (click)="setCurrentCustomer(customer)" pButton  type="button" icon="pi pi-trash"></button>
+                                </div>
+                            </div>
+                        </p-header>
+                        <div>Tipo de Control: {{customer.ControlType}}</div> 
+                     
+                    </p-card> 
+                </div>
+
+                
+                
+            </div>
+
+            <p-card *ngIf="!customerList || customerList.length < 1" class="ui-g-12 text-center" title="no hay datos para mostrar"> 
+                    
+                 
+            </p-card>
+        </div>
+    </div>
+
+    
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>
+
+<swal
+  #deleteSwal
+  title="Desea Eliminar Al Cliente?"
+  text="Esta Accion Es Permanente"
+  type="warning"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="delCustomer()">
+</swal>

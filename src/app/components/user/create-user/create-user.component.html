@@ -1,0 +1,95 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12">
+        <div class="card ">
+            <h1>Crear Usuario</h1>
+
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input required name="firstName" ngModel type="text" placeholder="Nombre" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input required name="lastName" ngModel type="text" placeholder="Apellido" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input pTooltip="Formato Valido: ejemplo@correo.com" tooltipPosition="top" tooltipEvent="focus" required email name="emailAddress" ngModel type="text" placeholder="Correo" pInputText>
+                    </div>
+                </div>  
+                
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required ngModel name="password" placeholder="Contraseña" pPassword type="password"/>
+                    </div>
+                </div>
+                
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <input required ngModel name="confirmPassword" placeholder="Confirmar Contraseña" pPassword type="password"/>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input required name="position" ngModel type="text" placeholder="Posicion" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input required name="phone" ngModel type="text" placeholder="Telefono" pInputText>
+                    </div>
+                </div>
+
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        
+                        <input required name="address" ngModel type="text" placeholder="Direccion" pInputText>
+                    </div>
+                </div>
+
+                 
+
+                
+
+                <button  class="ui-g-10 ui-md-10"  type="submit" [disabled]="!f.valid" label="Agregar" pButton icon="fa fa-plus"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  [text]="swalText"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  [text]="swalErrorMessage"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

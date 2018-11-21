@@ -1,0 +1,48 @@
+<div *ngIf="currentSuppliers" class="ui-g-12 ui-lg-12">
+  <div class="suppliers-card card">
+    <div class="suppliers-card-header">
+      <h1>{{currentSuppliers.Name}}</h1>
+    </div>
+    <div class="suppliers-card-content">
+      <div class="suppliers-detail">
+        <ul>
+          <li class="clearfix">
+            <h3> Id: {{currentSuppliers.Id}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Codigo: {{currentSuppliers.Code}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Comision: {{currentSuppliers.Commission}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Comision: {{currentSuppliers.Commission}}</h3>
+          </li>
+
+          <li class="clearfix">
+            <h3> Factor: {{currentSuppliers.Factor}}</h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<swal #successSwal title="Exito!" text="Cargado Exitosamente" type="success">
+</swal>
+
+<swal #warningSwal title="Error!" text="Ha Ocurrido Un Error" type="warning">
+</swal>
+
+<swal #loadingSwal title="Cargando...">
+
+  <div *swalPartial class="loading-center">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+</swal>

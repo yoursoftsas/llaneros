@@ -1,0 +1,13 @@
+
+
+.login-body .left-side img {
+    width: 80%;
+    padding: 150px 0 0 0;
+}
+
+@media (max-width: 1024px) { 
+    .login-body .left-side img {
+        width: 45%;
+        padding: 150px 0 0 0;
+    }
+ }

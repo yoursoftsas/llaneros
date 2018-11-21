@@ -1,0 +1,44 @@
+<div *ngIf="currentCategories" class="ui-g-12 ui-lg-12">
+    <div class="categories-card card">
+        <div class="categories-card-header">
+          <h1>{{currentCategories.Name}}</h1>
+        </div>
+        <div class="categories-card-content">
+            <div class="categories-detail">
+              <ul>
+                <li class="clearfix">
+                  <h3> Id: {{currentCategories.Id}}</h3>
+                </li>
+
+              </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<swal
+  #successSwal
+  title="Exito!"
+  text="Cargado Exitosamente"
+  type="success">
+</swal>
+
+<swal
+  #warningSwal
+  title="Error!"
+  text="Ha Ocurrido Un Error"
+  type="warning">
+</swal>
+
+<swal
+  #loadingSwal
+  title="Cargando..."
+  >
+
+  <div *swalPartial class="loading-center">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+  
+</swal>

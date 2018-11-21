@@ -1,0 +1,82 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+          <div class="card ">
+              <h1>Editar Usuario</h1>
+  
+              <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="ui-g form-group">
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input required name="name" [(ngModel)]="name" type="text" placeholder="Nombre" pInputText>
+                      </div>
+                  </div>
+  
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input required name="description" [(ngModel)]="description" type="text" placeholder="Marca" pInputText>
+                      </div>
+                  </div>
+  
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input name="code" [(ngModel)]="code" type="text" placeholder="Codigo" pInputText>
+                      </div>
+                  </div>  
+
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input required name="type" [(ngModel)]="type" type="text" placeholder="Tipo" pInputText>
+                      </div>
+                  </div>
+  
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input required name="quality" [(ngModel)]="quality" type="text" placeholder="Calidad" pInputText>
+                      </div>
+                  </div>
+  
+                  <div class="ui-g-12 ui-md-12">
+                      <div class="ui-inputgroup">
+                          
+                          <input required name="categoryId" [(ngModel)]="categoryId" type="text" placeholder="Categoria" pInputText>
+                      </div>
+                  </div>
+  
+                   
+  
+                  
+  
+                  <button  class="ui-g-10 ui-md-10"  type="submit" [disabled]="!f.valid" label="Modificar" pButton icon="fa fa-plus"></button>
+              </form>
+          </div>
+      </div>
+  </div>
+  
+  <swal
+    #successSwal
+    title="Exito!"
+    [text]="swalText"
+    type="success">
+  </swal>
+  
+  <swal
+    #warningSwal
+    title="Error!"
+    [text]="swalErrorMessage"
+    type="warning">
+  </swal>
+  
+  <swal
+    #loadingSwal
+    title="Cargando..."
+    >
+  
+    <div *swalPartial class="loading-center">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    
+  </swal>
